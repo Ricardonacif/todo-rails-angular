@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title ToDo Avenue Code
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{"cz-shortcut-listen" => "true"}
+    .container
+      / Static navbar
+      .navbar.navbar-default{role: "navigation"}
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{href: root_path} 
+              = image_tag 'logo.png', width: '30px'
+              Home
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav
+              %li= link_to "Home", root_path
+              %li= link_to "My ToDos", '#'
+            - if current_user
+              %ul.nav.navbar-nav.navbar-right
+                %li= link_to "Welcome, #{current_user.first_name}!", "#"
+                %li= link_to "Sign out", destroy_user_session_path, data: {method: 'delete'}
+            - else
+              %ul.nav.navbar-nav.navbar-right
+                %li= link_to "Sign In", new_user_session_path
+                %li= link_to "Register", new_user_registration_path          
+      - flash.each do |key, value|
+        %div{:class => flash_class(key)}
+          = value
+      = yield
+    .footer
+      .container
+        %p.text-muted
+          This ToDo app was developed by
+          =link_to "Ricardo Nacif", "https://github.com/Ricardonacif"
