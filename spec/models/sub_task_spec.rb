@@ -10,5 +10,4 @@ RSpec.describe SubTask, :type => :model do
     end
 
   end
-
 end
