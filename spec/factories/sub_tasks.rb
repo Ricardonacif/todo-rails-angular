@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :sub_task do
-    body "MyString"
+    body "My todo body"
     task
   end
 end

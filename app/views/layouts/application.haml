@@ -17,12 +17,12 @@
               %span.icon-bar
               %span.icon-bar
             %a.navbar-brand{href: root_path} 
-              = image_tag 'logo.png', width: '30px'
-              Home
+              / = image_tag 'logo.png', width: '30px'
+              ToDo App
           .navbar-collapse.collapse
             %ul.nav.navbar-nav
               %li= link_to "Home", root_path
-              %li= link_to "My ToDos", '#'
+              %li= link_to "My ToDo List", '#'
             - if current_user
               %ul.nav.navbar-nav.navbar-right
                 %li= link_to "Welcome, #{current_user.first_name}!", "#"

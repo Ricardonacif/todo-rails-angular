@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730183820) do
+ActiveRecord::Schema.define(version: 20140731152048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,17 +22,23 @@ ActiveRecord::Schema.define(version: 20140730183820) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sort_order"
+    t.boolean  "completed",  default: false
   end
 
   add_index "sub_tasks", ["task_id"], name: "index_sub_tasks_on_task_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.text     "body"
-    t.boolean  "public",     default: false
+    t.boolean  "public",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sort_order"
+    t.integer  "user_id"
+    t.integer  "sub_tasks_count", default: 0
+    t.boolean  "completed",       default: false
   end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -47,6 +53,8 @@ ActiveRecord::Schema.define(version: 20140730183820) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "tasks_count",            default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
