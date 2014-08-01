@@ -4,11 +4,6 @@ app.run (editableOptions) ->
   editableOptions.theme = "bs3"
   return
 
-
-$(document).on "ready page:load", ->
-  angular.bootstrap document.body, ["Todo"]
-  return
-
 app.factory "Task", ["$resource" , ($resource) ->
   $resource("/tasks/:id.json", {id: "@id"}, {update: {method: "PUT"}, query:  {method: 'GET', isArray: true}})
 

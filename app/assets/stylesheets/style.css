@@ -21,3 +21,7 @@ tr.success td.task_body{
   text-decoration: line-through; 
 
 }
+
+.grey-jumbotron {
+  background-color: #B9B9B9 !important;
+}

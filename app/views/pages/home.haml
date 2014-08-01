@@ -1,6 +1,11 @@
-.jumbotron
-  %h1
+.jumbotron.grey-jumbotron
+  %center
     = image_tag 'logo.png'
-    ToDo App
-  %p
-    Demo ToDo app for Avenue Code's interviewing process.
+    %h1
+      ToDo App
+    %p
+      Demo ToDo app for AvenueCode's interviewing process.
+    - if current_user.present?
+      = link_to 'My Tasks', tasks_path, class: 'btn btn-lg btn-success', role: 'button'
+    -else
+      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg btn-success', role: 'button'
