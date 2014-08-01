@@ -5,7 +5,7 @@ class SubTask < ActiveRecord::Base
 
   belongs_to :task, counter_cache: true, touch: true
 
-before_create :set_sort_order
+  before_create :set_sort_order
   
   def set_sort_order
     last_sub_task = task.sub_tasks.last

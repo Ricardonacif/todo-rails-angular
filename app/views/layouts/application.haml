@@ -22,10 +22,10 @@
           .navbar-collapse.collapse
             %ul.nav.navbar-nav
               %li= link_to "Home", root_path
-              %li= link_to "My ToDo List", '#'
+              %li= link_to "My ToDo List", tasks_path
             - if current_user
               %ul.nav.navbar-nav.navbar-right
-                %li= link_to "Welcome, #{current_user.first_name}!", "#"
+                %li= link_to "Welcome, #{current_user.name}!", "#"
                 %li= link_to "Sign out", destroy_user_session_path, data: {method: 'delete'}
             - else
               %ul.nav.navbar-nav.navbar-right

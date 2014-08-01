@@ -1,0 +1,33 @@
+= javascript_include_tag 'tasks'
+%h1
+  #{current_user.name}'s ToDo List
+.task_container{'ng-controller' => 'TaskCtrl'}
+  .well
+    = form_tag '' ,  'ng-submit' => 'addTask()', name: 'task_form'  do |f|
+      = text_field_tag :new_task, '', class: 'form-control', placeholder: 'Type a new task here and press enter', 'ng-model' => 'newTask.body', required: 'true', "maxlength" => "254"
+  .bs-example
+    .panel.panel-default
+      / Default panel contents
+      .panel-heading To be Done
+      / Table
+      %table.table
+        %thead
+          %tr
+            %th Done
+            %th Todo
+            %th Public
+            %th SubTasks
+            %th Remove Task
+        %tbody
+          %tr{'ng-repeat' => 'task in tasks', 'ng-class' => "{'success': task.completed}"}
+
+            %td
+              %input{type: 'checkbox',  'ng-model' => 'task.completed', 'ng-click'=> 'toggleCompleted(task)' }
+            %td.task_body
+              %a{"editable-text" => "task.body", :href => "#", onbeforesave: "checkBody($data)", onaftersave: "saveTask(task)"} {{ task.body || "empty" }}
+            %td
+              %input{type: 'checkbox',  'ng-model' => 'task.public', 'ng-click'=> 'togglePublic(task)' }
+            %td 
+              %button.btn.btn-xs.btn-primary{ 'ng-click'=> 'editModal(task)' } ({{task.sub_tasks.length || 0}}) Manage Subtasks
+            %td
+              %button.btn.btn-xs.btn-danger{ 'ng-click'=> 'removeTask(task)' } Remove

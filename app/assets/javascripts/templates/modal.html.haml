@@ -1,0 +1,29 @@
+.modal-header
+  %h3.modal-title Editing Task {{task.id}}
+.modal-body
+  %h4 Todo:
+  %form{:name => "sub_task_form"}
+    %textarea#edit_task.form-control{:name => "edit_task", "ng-model" => "task.body", :required => "required", :type => "textarea", "maxlength" => "254"}
+  %h4 Add a SubTask:
+  %form{:name => "sub_task_form", "ng-submit" => "saveSubTask()"}
+    %input#new_sub_task.form-control{:name => "new_subtask", "ng-model" => "subTask.body", :placeholder => "Type a new SubTask here and press enter", :required => "required", :type => "text", "maxlength" => "254"}
+  %div{'ng-show' => 'task.sub_tasks.length'}
+    %h4 SubTasks of this ToDo:
+    %table.table
+      %thead
+        %tr
+          %th Done
+          %th SubTask
+          %th Remove SubTask
+      %tbody
+        %tr{'ng-repeat' => 'sub_task in task.sub_tasks', 'ng-class' => "{'success': sub_task.completed}"}
+          %td
+            %input{type: 'checkbox',  'ng-model' => 'sub_task.completed', 'ng-click'=> 'toggleCompleted(sub_task)', "maxlength" => "254"}
+          
+          %td.task_body
+            %a{"editable-text" => "sub_task.body", :href => "#", onbeforesave: "checkBody($data)", onaftersave: "updateSubTask(sub_task)"} {{ sub_task.body || "empty" }}
+
+          %td
+            %button.btn.btn-xs.btn-danger{ 'ng-click'=> 'removeSubTask(sub_task)' } Remove  
+.modal-footer
+  %button.btn.btn-primary{"ng-click" => "close()"} Close

@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require angular
+//= require angular-resource
+//= require angular-ui-bootstrap
+//= require angular-ui-bootstrap-tpls
+//= require angular-rails-templates
+//= require xeditable.min
+//= require_tree ./templates
