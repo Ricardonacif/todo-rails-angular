@@ -1,7 +1,8 @@
 class SubTasksController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_sub_task, only: [:update, :destroy]
 
-  before_action :authenticate_user!
   respond_to :json
 
   def create

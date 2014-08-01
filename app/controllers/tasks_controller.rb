@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_task, only: [:update, :destroy]
 
-  before_action :authenticate_user!
+  
   respond_to :json
 
   def index
@@ -16,7 +18,9 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_with @task.update(task_params)
+    respond_to do |format|
+      format.json{ render :json => @task.update(task_params)}
+    end
   end
 
   def destroy
