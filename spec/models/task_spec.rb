@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Task, :type => :model do
   subject { FactoryGirl.create(:task) }
   context "Validations" do 
-    
 
     it "should validate the presence of body" do
       subject.body = ''

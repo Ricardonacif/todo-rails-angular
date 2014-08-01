@@ -24,6 +24,6 @@
             %a{"editable-text" => "sub_task.body", :href => "#", onbeforesave: "checkBody($data)", onaftersave: "updateSubTask(sub_task)"} {{ sub_task.body || "empty" }}
 
           %td
-            %button.btn.btn-xs.btn-danger{ 'ng-click'=> 'removeSubTask(sub_task)' } Remove  
+            %button.btn.btn-xs.btn-danger{ 'ng-click'=> 'removeSubTask(sub_task)' } Remove SubTask 
 .modal-footer
   %button.btn.btn-primary{"ng-click" => "close()"} Close

@@ -18,9 +18,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      format.json{ render :json => @task.update(task_params)}
-    end
+    respond_with @task.update(task_params), location: '' 
   end
 
   def destroy

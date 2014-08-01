@@ -46,6 +46,9 @@ group :development do
 end
 
 group :development, :test do
+  gem 'connection_pool'
+  gem 'selenium-webdriver'
+  gem 'launchy'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pry'
