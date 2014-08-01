@@ -1,9 +1,9 @@
 app = angular.module("Todo", ["ngResource", "ui.bootstrap", 'templates', "xeditable"])
 
-app.run (editableOptions) ->
+app.run ["editableOptions", (editableOptions) ->
   editableOptions.theme = "bs3"
   return
-
+]
 app.factory "Task", ["$resource" , ($resource) ->
   $resource("/tasks/:id.json", {id: "@id"}, {update: {method: "PUT"}, query:  {method: 'GET', isArray: true}})
 
@@ -16,7 +16,7 @@ app.factory "SubTask", ["$resource" , ($resource) ->
 
 @TaskCtrl = ["$scope", "$filter", "Task", "$modal" ,  ($scope, $filter, Task, $modal) ->
   $scope.tasks = Task.query()
-  orderBy = $filter('orderBy');
+  orderBy = $filter('orderBy')
 
   $scope.addTask = ->
     task = Task.save($scope.newTask)
