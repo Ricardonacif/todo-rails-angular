@@ -22,7 +22,8 @@
           .navbar-collapse.collapse
             %ul.nav.navbar-nav
               %li= link_to "Home", root_path
-              %li= link_to "My ToDo List", tasks_path
+              %li= link_to "My Tasks", tasks_path
+              %li= link_to "User's List", users_path
             - if current_user
               %ul.nav.navbar-nav.navbar-right
                 %li= link_to "Welcome, #{current_user.name}!", "#"

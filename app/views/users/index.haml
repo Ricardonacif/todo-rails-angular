@@ -1,0 +1,19 @@
+%h1
+  All ToDos
+  %small Get to know what the others are doing
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th User
+      %th Number of Tasks
+      %th Number of Public Tasks
+      %th Action
+  %tbody
+    - @users.each do |u|
+      %tr
+        %td= u.name
+        %td= u.tasks_count
+        %td= u.tasks.public_tasks.count
+        %td= link_to "Check it out!", u, class: 'btn btn-primary'
+        

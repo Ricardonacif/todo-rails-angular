@@ -21,6 +21,7 @@ gem 'haml'
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails'
 gem 'angular-rails-templates'
+gem 'arel'
 
 
 

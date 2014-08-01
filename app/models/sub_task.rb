@@ -8,7 +8,7 @@ class SubTask < ActiveRecord::Base
   before_create :set_sort_order
   
   def set_sort_order
-    last_sub_task = task.sub_tasks.last
+    last_sub_task = task.sub_tasks.first
     self.sort_order = last_sub_task ? last_sub_task.sort_order + 1 : 1
   end
 

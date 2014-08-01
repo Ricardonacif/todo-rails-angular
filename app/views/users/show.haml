@@ -1,0 +1,24 @@
+%h1
+  #{@user.name}'s ToDos (#{@user.tasks.public_tasks.count})
+  %small Get to know what the others are doing
+.panel.panel-default
+  / Default panel contents
+  .panel-heading 
+    %h4 Public Tasks
+  / Table
+  %table.table.table-striped
+    %thead
+      %tr
+        %th.col-md-1 Last Modified
+        %th.col-md-3 Todo
+        %th.col-md-2 SubTasks
+    %tbody
+      - @user.tasks.each do |task|
+        %tr
+          %td= time_ago_in_words(task.updated_at) + " ago"
+          %td= task.body
+          %td
+            %ul#selector
+              - task.sub_tasks.each do |sub_task|
+                %li= sub_task.body
+              

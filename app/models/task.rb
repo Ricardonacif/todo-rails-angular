@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   default_scope { order('sort_order DESC') } 
 
   scope :with_sub_tasks, -> { includes(:sub_tasks)}
+  scope :public_tasks, -> { where(public: true)}
   belongs_to :user, counter_cache: true
 
   has_many :sub_tasks, dependent: :destroy

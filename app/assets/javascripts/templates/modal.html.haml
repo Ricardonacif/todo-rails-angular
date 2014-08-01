@@ -17,10 +17,10 @@
           %th Remove SubTask
       %tbody
         %tr{'ng-repeat' => 'sub_task in task.sub_tasks', 'ng-class' => "{'success': sub_task.completed}"}
-          %td
+          %td.col-md-1
             %input{type: 'checkbox',  'ng-model' => 'sub_task.completed', 'ng-click'=> 'toggleCompleted(sub_task)', "maxlength" => "254"}
           
-          %td.task_body
+          %td.task_body.col-md-8
             %a{"editable-text" => "sub_task.body", :href => "#", onbeforesave: "checkBody($data)", onaftersave: "updateSubTask(sub_task)"} {{ sub_task.body || "empty" }}
 
           %td

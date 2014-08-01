@@ -221,6 +221,7 @@ DEPENDENCIES
   angular-rails-templates
   angular-ui-bootstrap-rails
   angularjs-rails
+  arel
   autoprefixer-rails
   better_errors
   binding_of_caller

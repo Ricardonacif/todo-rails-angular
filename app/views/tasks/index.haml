@@ -21,9 +21,9 @@
         %tbody
           %tr{'ng-repeat' => 'task in tasks', 'ng-class' => "{'success': task.completed}"}
 
-            %td
+            %td.col-md-1
               %input{type: 'checkbox',  'ng-model' => 'task.completed', 'ng-click'=> 'toggleCompleted(task)' }
-            %td.task_body
+            %td.task_body.col-md-7
               %a{"editable-text" => "task.body", :href => "#", onbeforesave: "checkBody($data)", onaftersave: "saveTask(task)"} {{ task.body || "empty" }}
             %td
               %input{type: 'checkbox',  'ng-model' => 'task.public', 'ng-click'=> 'togglePublic(task)' }

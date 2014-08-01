@@ -23,7 +23,6 @@ app.factory "SubTask", ["$resource" , ($resource) ->
   $scope.tasks = Task.query()
   orderBy = $filter('orderBy');
 
-  
   $scope.addTask = ->
     task = Task.save($scope.newTask)
     $scope.tasks.push(task)
@@ -44,7 +43,7 @@ app.factory "SubTask", ["$resource" , ($resource) ->
 
     
   $scope.checkBody = (data) ->
-    if data.length < 1
+    if data.length < 1 || data.length > 254
       "Task can't be blank!"
 
   $scope.saveTask = (task) ->
@@ -96,11 +95,11 @@ app.factory "SubTask", ["$resource" , ($resource) ->
     $scope.subTask = new SubTask({task_id: $scope.task.id, completed: false})
 
   $scope.checkBody = (data) ->
-    if data.length < 1
+    if data.length < 1 || data.length > 254
       "Task can't be blank!"
 
   $scope.updateSubTask = (subTask) ->
-    subTask = new SubTask(subTask);
+    subTask = new SubTask(subTask)
     subTask.$update()
     
 ]

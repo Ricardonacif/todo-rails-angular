@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   def index
     respond_to do |format|
       format.html 
-      format.json { render json: current_user.tasks.to_json(include: :sub_tasks ) }
+      format.json { render json: current_user.tasks.with_sub_tasks.to_json(include: :sub_tasks ) }
      end
   end
 
@@ -30,6 +30,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:body, :public, :completed, :sub_tasks ,sub_tasks_attributes: [:id, :body,  :_destroy])
+    params.require(:task).permit(:body, :public, :completed, :sort_order, :sub_tasks ,sub_tasks_attributes: [:id, :body,  :_destroy])
   end
 end
