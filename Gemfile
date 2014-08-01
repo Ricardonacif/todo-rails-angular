@@ -55,6 +55,10 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 
 
 # Use ActiveModel has_secure_password
