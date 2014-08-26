@@ -2,7 +2,10 @@ language: ruby
 rvm:
 - 2.1.2
 before_script:
-- psql -c 'create database todo_avenue_test' -U postgres
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - psql -c 'create database todo_avenue_test' -U postgres
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rspec
