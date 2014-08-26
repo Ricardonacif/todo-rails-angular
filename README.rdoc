@@ -1,28 +1,25 @@
-== README
+# ToDo - Ruby on Rails and Angular.JS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails demo application of a ToDo list using Angular.JS.
+ 
+The project is hosted at [this Heroku App](http://rails-todo-demo.herokuapp.com).
+## Main gems/libraries used ##
 
-Things you may want to cover:
+* [Twitter Bootstrap](http://getbootstrap.com/)
+* [Devise](https://github.com/plataformatec/devise)
+* [Rspec](http://rspec.info/)
+* [Capybara](https://github.com/jnicklas/capybara)
+* [HAML](http://haml.info)
+* [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails)
+* [angular-ui-bootstrap-rails](https://github.com/pitr/angular-rails-templates)
+* [angular-rails-templates](https://github.com/cconstantin/angular-ui-bootstrap-rails)
+* and many others (check Gemfile)
 
-* Ruby version
+## Contributing ##
 
-* System dependencies
+Any help is encouraged. Here are some ways you can contribute:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* by using it
+* by telling people
+* by reporting bugs or suggesting new features on github issue tracker
+* by fixing bugs or implementing features
