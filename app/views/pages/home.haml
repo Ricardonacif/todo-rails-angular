@@ -1,10 +1,9 @@
 .jumbotron.grey-jumbotron
   %center
-    = image_tag 'logo.png'
     %h1
       ToDo App
     %p
-      Demo ToDo app for AvenueCode's interviewing process.
+      Demo ToDo app using Ruby on Rails and Angular JS.
     - if current_user.present?
       = link_to 'My Tasks', tasks_path, class: 'btn btn-lg btn-success', role: 'button'
     -else
