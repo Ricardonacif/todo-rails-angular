@@ -1,6 +1,10 @@
 # ToDo - Ruby on Rails and Angular.JS
+[![Code Climate](https://codeclimate.com/github/Ricardonacif/todo-rails-angular/badges/gpa.svg)](https://codeclimate.com/github/Ricardonacif/todo-rails-angular)[![Build Status](https://travis-ci.org/Ricardonacif/todo-rails-angular.svg)](https://travis-ci.org/Ricardonacif/todo-rails-angular)
 
 Ruby on Rails demo application of a ToDo list using Angular.JS.
+
+
+
  
 The project is hosted at [this Heroku App](http://rails-todo-demo.herokuapp.com).
 ## Main gems/libraries used ##

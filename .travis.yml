@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+- 2.1.2
+before_script:
+- psql -c 'create database todo_avenue_test' -U postgres
+script:
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rspec
+env:
+  global:
+    secure: HNfDjqbt8hiANbl7C0DdsQhbf9w+jb9KxRi5odQbqhv7tCRsrVbRRQWQ21Tb/MrJfq8dJhSWdNL1PmwaxmhNfcf+fySuLPTfD754x3HW2bUowSzNxnG2LChfOeq1Xg9EcvUWmOAOrjIY5nEfWicuzMfPot1TocHnBHoqCOdy/fo=
